@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: clamp(40%, 1% + 2vw, 62.5%);
+
+  --bg-color: #ffffff;
+  --tt-color: #323238;
+  --btn-color: #e1e1e6;
+  --btn-active: #02799d;
+}
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  appearance: none;
+}
+
+input,
+button,
+textarea {
+  font-family: "Roboto", sans-serif;
+}
+
+html.dark {
+  --bg-color: #323238;
+  --tt-color: #ffffffdc;
+}
+
+html.dark .ph-moon,
+html:not(.dark) .ph-sun {
+  display: none;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--tt-color);
+}
+
+#toggle-mode {
+  background: transparent;
+  border: none;
+  color: var(--tt-color);
+
+  position: absolute;
+
+  top: 1.2rem;
+  right: 1.2rem;
+  font-size: 4rem;
+}
+
+#app {
+  display: grid;
+  max-width: 100rem;
+  height: 100vh;
+  margin: 0 auto;
+
+  grid-template-areas: "timer soundpad";
+  grid-template-columns: 1fr 1fr;
+
+  place-content: center;
+  padding-bottom: 12rem;
+}
+
+input {
+  display: inline;
+  width: 13rem;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+
+  font-family: Roboto, sans-serif;
+  font-size: 12rem;
+  color: var(--btn-active);
+}
+
+input:disabled {
+  background-color: transparent;
+  color: var(--tt-color);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#minutes {
+  text-align: right;
+}
+
+.timer {
+  grid-area: timer;
+  place-self: center;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12rem;
+}
+
+.display-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.display-options button {
+  border: none;
+  background: transparent;
+
+  color: var(--tt-color);
+  font-size: 4.8rem;
+}
+
+.display-options button.selected {
+  color: var(--btn-active);
+}
+
+.display-options button:hover,
+#toggle-mode:hover {
+  cursor: pointer;
+  color: var(--btn-active);
+}
+
+.display-options button.btn-disabled:hover {
+  cursor: not-allowed;
+  color: var(--tt-color);
+}
+
+.soundpad {
+  grid-area: soundpad;
+  place-self: center;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 3.2rem;
+}
+
+.soundpad button {
+  background: var(--btn-color);
+  border: none;
+  font-size: 6rem;
+  padding: 3.2rem;
+  border-radius: 2.4rem;
+}
+
+.soundpad button:hover {
+  cursor: pointer;
+
+  filter: brightness(0.9);
+}
+
+.soundpad button.selected {
+  background: var(--btn-active);
+  color: var(--btn-color);
+}

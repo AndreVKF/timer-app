@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script type="module" src="./src/index.js" defer></script>
+    <link
+      rel="shortcut icon"
+      href="./assets/icon/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>LupetTimer</title>
+  </head>
+  <body>
+    <div id="app">
+      <button id="toggle-mode">
+        <span class="sr-only">Ativar light mode</span>
+        <i class="ph-bold ph-sun"></i>
+        <i class="ph-bold ph-moon"></i>
+      </button>
+
+      <section class="timer">
+        <div class="display">
+          <input
+            type="text"
+            name="minutes"
+            id="minutes"
+            value="00"
+            max="60"
+            pattern="[0-9]{2}"
+            maxlength="2"
+            disabled
+          />
+          <span>:</span>
+          <input
+            type="text"
+            name="seconds"
+            id="seconds"
+            value="00"
+            max="59"
+            maxlength="2"
+            pattern="[0-9]{2}"
+            disabled
+          />
+        </div>
+
+        <div class="display-options">
+          <button
+            id="btn-start"
+            class="ph ph-play-circle"
+            data-action="init"
+          ></button>
+          <button
+            id="btn-pause"
+            class="ph ph-pause-circle"
+            data-action="pause"
+          ></button>
+          <button id="btn-set" class="ph ph-timer" data-action="set"></button>
+          <button
+            id="btn-plus"
+            class="ph ph-plus-circle"
+            data-action="add"
+          ></button>
+          <button
+            id="btn-minus"
+            class="ph ph-minus-circle"
+            data-action="minus"
+          ></button>
+        </div>
+      </section>
+
+      <section class="soundpad">
+        <button
+          id="btn-sound-forest"
+          class="ph ph-tree"
+          data-sound="forest"
+        ></button>
+        <button
+          id="btn-sound-rain"
+          class="ph ph-cloud-rain"
+          data-sound="rain"
+        ></button>
+        <button
+          id="btn-sound-coffe-shop"
+          class="ph ph-storefront"
+          data-sound="coffe_shop"
+        ></button>
+        <button
+          id="btn-sound-fireplace"
+          class="ph ph-fire"
+          data-sound="fireplace"
+        ></button>
+      </section>
+    </div>
+  </body>
+</html>
